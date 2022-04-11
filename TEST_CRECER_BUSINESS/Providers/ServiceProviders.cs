@@ -1,6 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using TEST_CRECER_BUSINESS.Business;
 using TEST_CRECER_BUSINESS.Interfaces;
 using TEST_CRECER_DATA;
+using TEST_CRECER_DATA.BD;
+using TEST_CRECER_DATA.Interfaces;
 
 namespace TEST_CRECER_BUSINESS.Providers
 {
@@ -10,6 +13,9 @@ namespace TEST_CRECER_BUSINESS.Providers
         {
             services.AddTransient<IPacienteData, PacienteData>();
             services.AddTransient<IPacientesBusiness, PacienteBusiness>();
+
+            services.AddTransient<ICitaData, CitaData>();
+            services.AddTransient<ICitaBusiness, CitaBusiness>();
             return services;
         }
     }

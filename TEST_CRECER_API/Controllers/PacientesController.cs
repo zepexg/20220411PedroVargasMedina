@@ -19,8 +19,15 @@ namespace TEST_CRECER_API.Controllers
         [HttpGet("getPacientes")]
         public ActionResult Get(string Nombre, string Apellidos, DateTime? FechaNacimiento, string Sexo)
         {
-            var res = _pacienteBusiness.getPacientes(Nombre, Apellidos, FechaNacimiento, Sexo);
-            return Ok(res);
+            try
+            {
+                var res = _pacienteBusiness.getPacientes(Nombre, Apellidos, FechaNacimiento, Sexo);
+                return Ok(res);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
         }
     }
 }
